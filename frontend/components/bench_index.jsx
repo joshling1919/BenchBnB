@@ -8,14 +8,11 @@ class BenchIndex extends React.Component{
   }
 
   render(){
-    let benchesArray;
-    // if (this.props.benches) {
-    // }
-    benchesArray = Object.keys(this.props.benches).map(benchId => (
+    let benchesArray = Object.keys(this.props.benches).map(benchId => (
       this.props.benches[benchId]
     ));
     let benchList = benchesArray.map(bench => {
-      return <BenchIndexItem bench={bench} />;
+      return <BenchIndexItem key={bench.lat + bench.lng} bench={bench} />;
     });
 
     return(
