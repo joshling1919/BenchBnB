@@ -5,18 +5,15 @@ class MarkerManager {
   }
 
   updateMarkers(benches){
-    console.log('time to update');
-    let markerManager = this;
     this._benchesToAdd(benches).forEach(bench => {
-      markerManager._createMarkerFromBench(bench);
+      this._createMarkerFromBench(bench);
     });
   }
 
   _benchesToAdd(benches){
     let benchesToAdd = [];
-    let markerManager = this;
     Object.keys(benches).forEach(id => {
-      if (markerManager.markers.indexOf(benches[id]) === -1) {
+      if (this.markers.indexOf(benches[id]) === -1) {
         benchesToAdd.push(benches[id]);
       }
     });
@@ -30,7 +27,6 @@ class MarkerManager {
       map: this.map
     });
     this.markers.push(marker);
-    return marker;
   }
 }
 
