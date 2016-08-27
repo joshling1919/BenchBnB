@@ -17,6 +17,7 @@ import Root from './components/root';
 document.addEventListener('DOMContentLoaded', () => {
   const preloadedState = { benches: {} };
   const store = configureStore(preloadedState);
+  window.requestBenches = requestBenches;
   window.store = store;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);

@@ -3,7 +3,7 @@ import BenchIndexItem from './bench_index_item';
 
 
 class BenchIndex extends React.Component{
-  componentDidMount(){
+  componentWillMount(){
     this.props.requestBenches();
   }
 
