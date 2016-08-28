@@ -3,8 +3,9 @@ export const BenchConstants = {
   REQUEST_BENCHES: "REQUEST_BENCHES"
 };
 
-export const requestBenches = () => ({
-  type: BenchConstants.REQUEST_BENCHES
+export const requestBenches = (bounds) => ({
+  type: BenchConstants.REQUEST_BENCHES,
+  bounds
 });
 
 export const receiveBenches = benches => ({

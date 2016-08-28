@@ -15,8 +15,9 @@ import Root from './components/root';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const preloadedState = { benches: {} };
+  const preloadedState = { benches: {}, filter: {} };
   const store = configureStore(preloadedState);
+  window.fetchBenches = fetchBenches;
   window.requestBenches = requestBenches;
   window.store = store;
   const root = document.getElementById('root');

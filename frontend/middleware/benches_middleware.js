@@ -5,7 +5,7 @@
     switch(action.type){
       case BenchConstants.REQUEST_BENCHES:
         const success = data => dispatch(receiveBenches(data));
-        fetchBenches(success);
+        fetchBenches(action.bounds, success);
         return next(action);
       default:
         return next(action);

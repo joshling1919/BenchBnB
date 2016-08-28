@@ -11,8 +11,25 @@ class BenchMap extends React.Component {
       zoom: 13
     };
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
+    this.listenForMove();
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.benches);
+  }
+
+  listenForMove() {
+    google.maps.event.addListener(this.map, 'idle', () => {
+      const bounds = this.map.getBounds();
+      this.props.updateBounds({
+        northEast: {
+          lat: bounds.getNorthEast().lat(),
+          lng: bounds.getNorthEast().lng()
+        },
+        southWest: {
+          lat: bounds.getSouthWest().lat(),
+          lng: bounds.getSouthWest().lng()
+        }
+      });
+    });
   }
 
   componentDidUpdate() {
@@ -20,7 +37,7 @@ class BenchMap extends React.Component {
   }
   render(){
     return(
-      <div id='map-container' ref='map'>
+      <div ref='map' className="bench-map">
         HELLO I AM THE BENCH MAP
       </div>
     );

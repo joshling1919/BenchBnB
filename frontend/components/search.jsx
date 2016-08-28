@@ -2,11 +2,16 @@ import React from 'react';
 import BenchMap from './bench_map';
 import BenchIndex from './bench_index';
 
-const Search = ({ benches, requestBenches }) => {
+const Search = ({ benches, updateBounds }) => {
   return(
-    <div>
-      <BenchMap benches={benches}/>
-      <BenchIndex benches={benches} requestBenches={requestBenches}/>
+    <div className="container">
+      <BenchIndex
+        benches={benches}
+      />
+      <BenchMap
+        benches={benches}
+        updateBounds={updateBounds}
+      />
     </div>
   );
 };
