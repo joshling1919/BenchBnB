@@ -3,14 +3,15 @@ import MarkerManager from '../util/marker_manager';
 
 class BenchIndexItem extends React.Component {
   lightUpMarker(bench){
-    console.log('hover');
+    this.props.markerHover(bench);
   }
 
   render() {
     const { bench } = this.props;
     return(
       <li className="index-item"
-        onMouseEnter={this.lightUpMarker.bind(this, bench)}>
+        onMouseOver={this.lightUpMarker.bind(this, bench)}
+        onMouseOut={this.lightUpMarker.bind(this, null)}>
         Description: {bench.description}{' '}
         (Latitude: {bench.lat},{' '}
         Longitude: {bench.lng})

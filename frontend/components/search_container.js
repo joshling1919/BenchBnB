@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import { requestBenches } from '../actions/bench_actions';
 import Search from './search';
-import { updateBounds } from '../actions/filter_actions';
+import { markerHover } from '../actions/filter_actions';
 
 
 const mapStateToProps = state => ({
-  benches: state.benches
+  benches: state.benches,
+  lightUpMarker: state.filter.hoverMarker
 });
 
 const mapDispatchToProps = dispatch => ({
    requestBenches: (bounds) => dispatch(requestBenches(bounds)),
-   updateBounds: (bounds) => dispatch(updateBounds(bounds))
+   markerHover: (bench) => dispatch(markerHover(bench))
  });
 
 

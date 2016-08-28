@@ -26,6 +26,23 @@ class MarkerManager {
     return benchesToAdd;
   }
 
+  lightUpMarker(bench){
+    let benchPos;
+    if (bench) {
+      benchPos = new google.maps.LatLng(bench.lat, bench.lng);
+    }
+    if (benchPos) {
+      this.markers.forEach(marker => {
+        if (benchPos.equals(marker.getPosition())) {
+          marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+        }
+      });
+    } else {
+      this.markers.forEach(marker => {
+        marker.setIcon('http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569');
+      });
+    }
+  }
 
   _markersToRemove(benches){
     let markersToRemove = [];
@@ -49,6 +66,7 @@ class MarkerManager {
     let marker = new google.maps.Marker({
       position: benchLatLng,
       map: this.map,
+      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569',
       benchId: bench.id
     });
     this.markers.push(marker);

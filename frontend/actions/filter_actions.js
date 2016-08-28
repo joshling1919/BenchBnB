@@ -1,8 +1,8 @@
 export const FilterConstants = {
-  UPDATE_BOUNDS: "UPDATE_BOUNDS"
+  MARKER_HOVER: "MARKER_HOVER"
 };
 
-export const updateBounds = (bounds) => ({
-  type: FilterConstants.UPDATE_BOUNDS,
-  bounds
+export const markerHover = (bench) => ({
+  type: FilterConstants.MARKER_HOVER,
+  bench
 });

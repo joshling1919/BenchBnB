@@ -19,7 +19,7 @@ class BenchMap extends React.Component {
   listenForMove() {
     google.maps.event.addListener(this.map, 'idle', () => {
       const bounds = this.map.getBounds();
-      this.props.updateBounds({
+      this.props.requestBenches({
         northEast: {
           lat: bounds.getNorthEast().lat(),
           lng: bounds.getNorthEast().lng()
@@ -33,6 +33,7 @@ class BenchMap extends React.Component {
   }
 
   componentDidUpdate() {
+    this.MarkerManager.lightUpMarker(this.props.lightUpMarker);
     this.MarkerManager.updateMarkers(this.props.benches);
   }
   render(){
