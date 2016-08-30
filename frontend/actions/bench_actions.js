@@ -16,7 +16,7 @@ export const receiveBenches = benches => ({
 });
 
 export const receiveBench = bench => ({
-  type: BenchConstants.RECEIVE_BENCHES,
+  type: BenchConstants.RECEIVE_BENCH,
   bench
 });
 

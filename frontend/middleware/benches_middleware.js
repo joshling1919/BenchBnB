@@ -1,4 +1,4 @@
-import { BenchConstants, receiveBenches, requestBenches} from '../actions/bench_actions.js';
+import { BenchConstants, receiveBenches, requestBenches, receiveBench } from '../actions/bench_actions.js';
 import { fetchBenches, createBench } from '../util/bench_api_util';
 import { FilterConstants } from '../actions/filter_actions.js';
 
@@ -9,7 +9,7 @@ import { FilterConstants } from '../actions/filter_actions.js';
         fetchBenches(action.bounds, success);
         return next(action);
       case BenchConstants.CREATE_BENCH:
-        const createSuccess = bench => {console.log(bench);};
+        const createSuccess = bench => store.dispatch(receiveBench(bench));
         createBench(action.bench, createSuccess);
         return next(action);
       default:

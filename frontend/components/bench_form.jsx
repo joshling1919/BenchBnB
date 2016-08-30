@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 
 class BenchForm extends React.Component {
@@ -13,9 +14,11 @@ class BenchForm extends React.Component {
   }
   createBench(e){
     e.preventDefault();
-    //dispatch an action to create the bench using the form
     let bench = this.state;
     this.props.createBench(bench);
+    this.props.router.push({
+      pathname: "/"
+    });
   }
 
   updateDescription(e){
@@ -65,4 +68,4 @@ class BenchForm extends React.Component {
   }
 }
 
-export default BenchForm;
+export default withRouter(BenchForm);
